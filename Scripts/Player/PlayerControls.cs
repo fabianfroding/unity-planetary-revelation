@@ -2,19 +2,14 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject radarDroidPrefab;
-
-    private int resources = 20000;
-
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && PlayerCursor.Instance.playerObjectToPlace != null)
         {
-
-            if (resources > 50)
+            PlayerObject playerObject = PlayerCursor.Instance.playerObjectToPlace.GetComponent<PlayerObject>();
+            if (PlayerResources.GetResources() >= playerObject.GetResourceCost())
             {
-                resources -= 50;
+                PlayerResources.AddResources(-playerObject.GetResourceCost());
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -22,11 +17,21 @@ public class PlayerControls : MonoBehaviour
                 {
                     if (hit.transform.CompareTag(EditorConstants.TAG_PLANE))
                     {
-                        GameObject radarDroid = GameObject.Instantiate(radarDroidPrefab);
-                        radarDroid.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                        GameObject playerObjectToPlace = GameObject.Instantiate(playerObject.gameObject);
+                        playerObjectToPlace.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                        AudioManager.Instance.PlayPlayerObjectPlacementSound(playerObjectToPlace);
                     }
                 }
+                PlayerCursor.Instance.ResetCursor();
             }
+            else
+            {
+                Debug.Log("Insufficient resources to build " + playerObject.gameObject.name + "(" + playerObject.GetResourceCost() + ")");
+            }
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            PlayerCursor.Instance.ResetCursor();
         }
     }
 }

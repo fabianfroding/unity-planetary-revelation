@@ -133,10 +133,10 @@ MonoBehaviour:
   lineRendererMaterial: {fileID: 2100000, guid: 1eb569987b013e54a94ecf7808905ecc,
     type: 2}
   castPoint: {fileID: 2477386434864190365}
-  scanRange: 100
   scanCollider: {fileID: 2252393555964265515}
-  playerObjectDestroyedSoundPrefab: {fileID: 8075164778699592426, guid: f3030eddb2e42e34fb971d42921bd46a,
-    type: 3}
+  scanRange: 100
+  resourceCost: 50
+  maxTargets: 2
 --- !u!114 &552131769845851160
 MonoBehaviour:
   m_ObjectHideFlags: 0

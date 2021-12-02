@@ -6,8 +6,10 @@ public class PlayerObject : MonoBehaviour
 {
     [SerializeField] private Material lineRendererMaterial;
     [SerializeField] private GameObject castPoint;
-    [SerializeField] private float scanRange = 40f;
     [SerializeField] private SphereCollider scanCollider;
+    [SerializeField] private float scanRange = 40f;
+    [SerializeField] private int resourceCost;
+    [SerializeField] private int maxTargets = 1;
 
     private List<GameObject> detectedPlanets;
     private string lineRendererSuffix = "_LineRenderer";
@@ -33,6 +35,11 @@ public class PlayerObject : MonoBehaviour
         }
     }
 
+    public int GetResourceCost()
+    {
+        return resourceCost;
+    }
+
     private IEnumerator Tick()
     {
         while (true)
@@ -55,7 +62,9 @@ public class PlayerObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(EditorConstants.LAYER_PLANET))
+        if (detectedPlanets.Count < maxTargets && 
+            other.gameObject.layer == LayerMask.NameToLayer(EditorConstants.LAYER_PLANET) &&
+            other.GetComponent<PlanetScript>().planetData.percentScanned < 100)
         {
             detectedPlanets.Add(other.gameObject);
 

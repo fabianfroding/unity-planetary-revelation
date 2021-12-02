@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private GameObject cursorClickSoundPrefab;
     [SerializeField] private GameObject planetScannedSoundPrefab;
     [SerializeField] private GameObject playerObjectDestroyedSoundPrefab;
+    [SerializeField] private GameObject playerObjectPlacementSoundPrefab;
 
     private static AudioManager instance;
     public static AudioManager Instance
@@ -18,6 +20,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlayerCursorClickSound()
+    {
+        PlaySound(cursorClickSoundPrefab, Camera.main.transform.position);
+    }
+
     public void PlayPlayerObjectDestroyedSound(GameObject source)
     {
         PlaySound(playerObjectDestroyedSoundPrefab, source.transform.position);
@@ -26,6 +33,11 @@ public class AudioManager : MonoBehaviour
     public void PlayPlanetScannedSound(GameObject source)
     {
         PlaySound(planetScannedSoundPrefab, source.transform.position);
+    }
+
+    public void PlayPlayerObjectPlacementSound(GameObject source)
+    {
+        PlaySound(playerObjectPlacementSoundPrefab, source.transform.position);
     }
 
     private void PlaySound(GameObject sound, Vector3 position)

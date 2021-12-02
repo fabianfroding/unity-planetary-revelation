@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private Text planetsScannedText;
+    [SerializeField] private Text resourcesText;
     [SerializeField] private Text planetText;
     [SerializeField] private Text percentScannedText;
     [SerializeField] private Text distanceText;
@@ -18,6 +20,11 @@ public class UIManager : MonoBehaviour
             }
             return instance;
         }
+    }
+
+    public void UpdateResourcesText()
+    {
+        resourcesText.text = "Resources: " + PlayerResources.GetResources();
     }
 
     public void UpdatePlanetUIData(PlanetUIData planetUIData)

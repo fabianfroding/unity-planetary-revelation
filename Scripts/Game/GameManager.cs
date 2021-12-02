@@ -19,15 +19,17 @@ public class GameManager : MonoBehaviour
 
     private void Load()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         LoadCameraPosition();
         LoadPlanets();
+        LoadPlayerResources();
     }
 
     private void Save()
     {
         SaveCameraPosition();
         SavePlanets();
+        SavePlayerResources();
     }
 
     private void LoadCameraPosition()
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void LoadPlayerResources()
+    {
+        PlayerResources.AddResources(PlayerPrefsManager.LoadPlayerResources());
+    }
+
     private void SaveCameraPosition()
     {
         PlayerPrefsManager.SaveCameraPosition(Camera.main);
@@ -64,5 +71,10 @@ public class GameManager : MonoBehaviour
             PlayerPrefsManager.SavePlanetData(planets[i]);
             PlayerPrefsManager.SavePlanetPosition(planets[i]);
         }
+    }
+
+    private void SavePlayerResources()
+    {
+        PlayerPrefsManager.SavePlayerResources(PlayerResources.GetResources());
     }
 }

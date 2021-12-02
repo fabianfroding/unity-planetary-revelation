@@ -9,6 +9,7 @@ public class PlayerPrefsManager
     private static readonly string DB_KEY_PLANET_POS_X = "PlanetPosX";
     private static readonly string DB_KEY_PLANET_POS_Y = "PlanetPosY";
     private static readonly string DB_KEY_PLANET_POS_Z = "PlanetPosZ";
+    private static readonly string DB_KEY_PLAYER_RESOURCES = "PlayerResources";
 
     public static void SaveCameraPosition(Camera camera)
     {
@@ -27,6 +28,11 @@ public class PlayerPrefsManager
         PlayerPrefs.SetFloat(planet.name + DB_KEY_PLANET_POS_X, planet.transform.position.x);
         PlayerPrefs.SetFloat(planet.name + DB_KEY_PLANET_POS_Y, planet.transform.position.y);
         PlayerPrefs.SetFloat(planet.name + DB_KEY_PLANET_POS_Z, planet.transform.position.z);
+    }
+
+    public static void SavePlayerResources(int resources)
+    {
+        PlayerPrefs.SetInt(DB_KEY_PLAYER_RESOURCES, resources);
     }
 
     public static Vector3 LoadCameraPosition()
@@ -64,6 +70,14 @@ public class PlayerPrefsManager
                 PlayerPrefs.GetFloat(planet.name + DB_KEY_PLANET_POS_Z));
         }
         return new Vector3();
-        
+    }
+
+    public static int LoadPlayerResources()
+    {
+        if (PlayerPrefs.HasKey(DB_KEY_PLAYER_RESOURCES))
+        {
+            return PlayerPrefs.GetInt(DB_KEY_PLAYER_RESOURCES);
+        }
+        return 500;
     }
 }
