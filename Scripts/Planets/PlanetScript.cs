@@ -11,8 +11,8 @@ public class PlanetScript : MonoBehaviour
             float newPercentScanned = planetData.percentScanned + planetData.percentScannedPerSec;
             if (newPercentScanned >= 100)
             {
-                Discover();
                 planetData.percentScanned = 100;
+                ScanComplete();
             }
             else
             {
@@ -21,10 +21,10 @@ public class PlanetScript : MonoBehaviour
         }
     }
 
-    private void Discover()
+    private void ScanComplete()
     {
         AudioManager.Instance.PlayPlanetScannedSound(gameObject);
-        // TODO: Emit event to increment planet scanned counter.
+        PlanetEventManager.Instance.PlanetScanComplete();
     }
 
     private void OnMouseOver()

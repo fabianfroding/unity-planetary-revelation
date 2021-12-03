@@ -11,6 +11,7 @@ public class EditorConstants
     public static readonly string TAG_AUDIO_MANAGER = "AudioManager";
     public static readonly string TAG_HARMFUL = "Harmful";
     public static readonly string TAG_PLANE = "Plane";
+    public static readonly string TAG_PLANET_EVENT_MANAGER = "PlanetEventManager";
     public static readonly string TAG_PLAYER_CONTROLS = "PlayerControls";
     public static readonly string TAG_UI_MANAGER = "UIManager";
 }

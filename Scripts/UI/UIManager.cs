@@ -22,14 +22,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateResourcesText()
-    {
-        resourcesText.text = "Resources: " + PlayerResources.GetResources();
-    }
-
     public void UpdatePlanetUIData(PlanetUIData planetUIData)
     {
         instance.UpdatePlanetUIDataTooltip(planetUIData);
+    }
+
+    public void UpdatePlanetsScannedText(int planetsScanned, int totalNumPlanets)
+    {
+        planetsScannedText.text = "Planets scanned: " + planetsScanned + "/" + totalNumPlanets;
+    }
+
+    public void UpdateResourcesText()
+    {
+        resourcesText.text = "Resources: " + PlayerResources.GetResources();
     }
 
     public void ResetPlanetUIData()

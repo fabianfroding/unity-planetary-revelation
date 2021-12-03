@@ -10,11 +10,31 @@ public class GameManager : MonoBehaviour
     {
         Load();
         UIManager.Instance.ResetPlanetUIData(); // Hide default text.
+        PlanetEventManager.Instance.OnPlanetScanComplete += UpdatePlanetsScanned;
     }
 
     private void OnApplicationQuit()
     {
         Save();
+    }
+
+    private void UpdatePlanetsScanned()
+    {
+        int numPlanetsFullyScanned = 0;
+        for (int i = 0; i < planets.Count; i++)
+        {
+            if (planets[i].GetComponent<PlanetScript>().planetData.percentScanned >= 100)
+            {
+                numPlanetsFullyScanned++;
+            }
+        }
+        UIManager.Instance.UpdatePlanetsScannedText(numPlanetsFullyScanned, planets.Count);
+
+        if (numPlanetsFullyScanned >= planets.Count)
+        {
+            // TODO: Game complete.
+            Debug.Log("Game complete.");
+        }
     }
 
     private void Load()

@@ -56,6 +56,7 @@ public class PlayerObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(EditorConstants.TAG_HARMFUL))
         {
+            AudioManager.Instance.PlayPlayerObjectDestroyedSound(gameObject);
             Destroy(gameObject);
         }
     }
@@ -83,12 +84,11 @@ public class PlayerObject : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer(EditorConstants.LAYER_PLANET))
         {
             detectedPlanets.Remove(other.gameObject);
-            Destroy(transform.Find(other.gameObject.name + lineRendererSuffix).gameObject);
+            Transform lrChild = transform.Find(other.gameObject.name + lineRendererSuffix);
+            if (lrChild != null)
+            {
+                Destroy(lrChild.gameObject);
+            }
         }
-    }
-
-    private void OnDestroy()
-    {
-        AudioManager.Instance.PlayPlayerObjectDestroyedSound(gameObject);
     }
 }
