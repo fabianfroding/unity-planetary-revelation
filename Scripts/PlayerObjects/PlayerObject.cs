@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class PlayerObject : MonoBehaviour
 {
-    [SerializeField] private Material lineRendererMaterial;
+    public PlayerObjectData playerObjectData;
     [SerializeField] private GameObject castPoint;
     [SerializeField] private SphereCollider scanCollider;
-    [SerializeField] private float scanRange = 40f;
-    [SerializeField] private int resourceCost;
-    [SerializeField] private int maxTargets = 1;
-
+    
     private List<GameObject> detectedPlanets;
     private string lineRendererSuffix = "_LineRenderer";
 
     private void Start()
     {
         detectedPlanets = new List<GameObject>();
-        scanCollider.radius = scanRange;
+        scanCollider.radius = playerObjectData.scanRange;
         StartCoroutine(Tick());
     }
 
@@ -29,15 +26,19 @@ public class PlayerObject : MonoBehaviour
             lr.SetPosition(0, castPoint.transform.position);
             lr.SetPosition(1, detectedPlanets[i].transform.position);
         }
-        if (scanCollider.radius != scanRange)
+
+        // TODO: Sort detected planets based on distance from player object.
+        // Prioritize planets that are closer.
+
+        if (scanCollider.radius != playerObjectData.scanRange)
         {
-            scanCollider.radius = scanRange;
+            scanCollider.radius = playerObjectData.scanRange;
         }
     }
 
     public int GetResourceCost()
     {
-        return resourceCost;
+        return playerObjectData.resourceCost;
     }
 
     private IEnumerator Tick()
@@ -63,7 +64,7 @@ public class PlayerObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (detectedPlanets.Count < maxTargets && 
+        if (detectedPlanets.Count < playerObjectData.maxTargets && 
             other.gameObject.layer == LayerMask.NameToLayer(EditorConstants.LAYER_PLANET) &&
             other.GetComponent<PlanetScript>().planetData.percentScanned < 100)
         {
@@ -73,7 +74,7 @@ public class PlayerObject : MonoBehaviour
             line.transform.parent = gameObject.transform;
             line.AddComponent<LineRenderer>();
             LineRenderer lineRenderer = line.GetComponent<LineRenderer>();
-            lineRenderer.material = lineRendererMaterial;
+            lineRenderer.material = playerObjectData.lineRendererMaterial;
             lineRenderer.SetPosition(0, castPoint.transform.position);
             lineRenderer.SetPosition(1, other.transform.position);
         }
