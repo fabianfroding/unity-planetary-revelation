@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerObjectIndicator : MonoBehaviour
 {
     [SerializeField] GameObject radarSignalPrefab;
+    [SerializeField] float radarSignalSize = 4f;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class PlayerObjectIndicator : MonoBehaviour
             signal.transform.SetPositionAndRotation(gameObject.transform.position, Quaternion.identity);
             signal.transform.Rotate(90, 0, 0);
             signal.transform.parent = null;
+            signal.transform.localScale = new Vector3(radarSignalSize, radarSignalSize, radarSignalSize);
             Destroy(signal, signal.GetComponent<ParticleSystem>().main.duration);
         }
     }

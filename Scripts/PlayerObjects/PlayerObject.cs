@@ -22,13 +22,12 @@ public class PlayerObject : MonoBehaviour
     {
         for (int i = 0; i < detectedPlanets.Count; i++)
         {
+            // TODO: If planet is fully scanned, remove LR and remove from detected planets.
+            // But then it still wont update for new planets already inside the range...
             LineRenderer lr = transform.Find(detectedPlanets[i].name + lineRendererSuffix).gameObject.GetComponent<LineRenderer>();
             lr.SetPosition(0, castPoint.transform.position);
             lr.SetPosition(1, detectedPlanets[i].transform.position);
         }
-
-        // TODO: Sort detected planets based on distance from player object.
-        // Prioritize planets that are closer.
 
         if (scanCollider.radius != playerObjectData.scanRange)
         {
@@ -64,7 +63,7 @@ public class PlayerObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (detectedPlanets.Count < playerObjectData.maxTargets && 
+        if (detectedPlanets.Count < playerObjectData.maxTargets &&
             other.gameObject.layer == LayerMask.NameToLayer(EditorConstants.LAYER_PLANET) &&
             other.GetComponent<PlanetScript>().planetData.percentScanned < 100)
         {
