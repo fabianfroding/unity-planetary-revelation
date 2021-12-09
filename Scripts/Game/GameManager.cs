@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> planets; // TODO: Remove and replace references to solar system GO.
-
     private void Start()
     {
         Load();
@@ -19,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdatePlanetsScanned()
     {
+        List<GameObject> planets = SolarSystem.Instance.GetPlanets();
         int numPlanetsFullyScanned = 0;
         for (int i = 0; i < planets.Count; i++)
         {
@@ -62,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     private void LoadPlanets()
     {
+        List<GameObject> planets = SolarSystem.Instance.GetPlanets();
         for (int i = 0; i < planets.Count; i++)
         {
             planets[i].GetComponent<PlanetScript>().planetData.percentScanned = PlayerPrefsManager.LoadPlanetDataPercentScanned(planets[i]);
@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void SavePlanets()
     {
+        List<GameObject> planets = SolarSystem.Instance.GetPlanets();
         for (int i = 0; i < planets.Count; i++)
         {
             PlayerPrefsManager.SavePlanetData(planets[i]);

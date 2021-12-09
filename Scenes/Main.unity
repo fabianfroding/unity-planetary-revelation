@@ -2220,15 +2220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153bcc5d5a53daa4d8a389d5e3efaf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planets:
-  - {fileID: 6670718810704001404}
-  - {fileID: 6670718809438667905}
-  - {fileID: 6670718810115809768}
-  - {fileID: 6670718810759569621}
-  - {fileID: 6670718811032834814}
-  - {fileID: 6670718810772695556}
-  - {fileID: 6670718811295762826}
-  - {fileID: 6670718809636944119}
 --- !u!114 &268296680406827215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2368,6 +2359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 48.739002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832438002660350327, guid: f1dd9743d593d724986d99bb5453d083,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1dd9743d593d724986d99bb5453d083, type: 3}
@@ -2647,6 +2643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832438002660350327, guid: f1dd9743d593d724986d99bb5453d083,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1dd9743d593d724986d99bb5453d083, type: 3}
@@ -4164,6 +4165,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.181
       objectReference: {fileID: 0}
+    - target: {fileID: 7832438002660350327, guid: f1dd9743d593d724986d99bb5453d083,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1dd9743d593d724986d99bb5453d083, type: 3}
 --- !u!114 &7305423877632750673
@@ -4302,6 +4308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.181
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832438002660350327, guid: f1dd9743d593d724986d99bb5453d083,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1dd9743d593d724986d99bb5453d083, type: 3}
@@ -4447,6 +4458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 48.739002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832438002660350327, guid: f1dd9743d593d724986d99bb5453d083,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1dd9743d593d724986d99bb5453d083, type: 3}
