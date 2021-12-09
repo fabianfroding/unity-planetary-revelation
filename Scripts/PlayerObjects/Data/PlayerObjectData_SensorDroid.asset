@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRendererMaterial: {fileID: 2100000, guid: c0c49996466e8844c852983d0728804e,
     type: 2}
-  scanRange: 150
+  scanRange: 300
   resourceCost: 50
   maxTargets: 1

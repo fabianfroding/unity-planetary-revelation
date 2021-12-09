@@ -1,5 +1,6 @@
 public class EditorConstants
 {
+    public static readonly string GAME_OBJECT_NAME_SOLAR_SYSTEM = "SolarSystem";
     public static readonly string GAME_OBJECT_NAME_SUN = "Sun";
 
     public static readonly string LAYER_PLANET = "Planet";

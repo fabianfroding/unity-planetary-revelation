@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    public List<GameObject> planets;
+    [SerializeField] public List<GameObject> planets; // TODO: Remove and replace references to solar system GO.
 
     private void Start()
     {
