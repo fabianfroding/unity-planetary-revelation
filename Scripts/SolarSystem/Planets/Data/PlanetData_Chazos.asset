@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   percentScanned: 0
-  percentScannedPerSec: 2.5
+  percentScannedPerSec: 1.25

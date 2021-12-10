@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
-  m_Name: PlanetData_Agos
+  m_Script: {fileID: 11500000, guid: 1086ba1f97b8f7a408e429e095afa0d3, type: 3}
+  m_Name: PlayerObjectData_FocusDroid
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 102
-  percentScannedPerSec: 2
+  lineRendererMaterial: {fileID: 2100000, guid: 2b069dd242f8f9043b923ec5e5cf0673,
+    type: 2}
+  scanSpeed: 2
+  scanRange: 300
+  resourceCost: 45
+  maxTargets: 1

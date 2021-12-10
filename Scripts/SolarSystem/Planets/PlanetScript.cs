@@ -4,7 +4,7 @@ public class PlanetScript : MonoBehaviour
 {
     public PlanetData planetData;
 
-    public void Scan()
+    public void Scan(float playerObjectScanSpeed)
     {
         if (planetData.percentScanned < 100)
         {
@@ -16,7 +16,7 @@ public class PlanetScript : MonoBehaviour
             }
             else
             {
-                planetData.percentScanned += planetData.percentScannedPerSec;
+                planetData.percentScanned += planetData.percentScannedPerSec * playerObjectScanSpeed;
             }
         }
     }

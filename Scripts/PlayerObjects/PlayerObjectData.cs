@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerObjectData : ScriptableObject
 {
     public Material lineRendererMaterial;
+    [Range(1, 2)]
+    public float scanSpeed;
     [Range(300, 1200)]
     public float scanRange;
     [Range(1, 100)]

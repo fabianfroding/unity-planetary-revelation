@@ -47,7 +47,7 @@ public class PlayerObject : MonoBehaviour
             yield return new WaitForSeconds(1f);
             for (int i = 0; i < detectedPlanets.Count; i++)
             {
-                detectedPlanets[i].GetComponent<PlanetScript>().Scan();
+                detectedPlanets[i].GetComponent<PlanetScript>().Scan(playerObjectData.scanSpeed);
             }
         }
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlanetData_Bryus
   m_EditorClassIdentifier: 
   description: 
-  percentScanned: 0
-  percentScannedPerSec: 2
+  percentScanned: 16.5
+  percentScannedPerSec: 1
