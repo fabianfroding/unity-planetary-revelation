@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
   m_Name: PlanetData_Phenara
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 0
-  percentScannedPerSec: 1
+  planetName: Phenara
+  description: This planet is a massive sphere of ice. It is so cold that the energy
+    from the planet pulses outwards into the rest of the solar system.
+  size: 10000
+  distanceToSun: 1906000000

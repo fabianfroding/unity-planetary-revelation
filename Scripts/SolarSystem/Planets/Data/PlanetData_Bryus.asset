@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
   m_Name: PlanetData_Bryus
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 16.5
-  percentScannedPerSec: 1
+  planetName: Bryus
+  description: The planet has an extremely hot climate. It is almost as if the planet
+    itself is on fire. Eruptions occur frequently. Due to the planet's close proximity
+    to the sun life is impossible.
+  size: 5000
+  distanceToSun: 88000000

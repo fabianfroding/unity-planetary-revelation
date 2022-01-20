@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
   m_Name: PlanetData_Chazos
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 0
-  percentScannedPerSec: 1.25
+  planetName: Chazos
+  description: The planet is surrounded by cosmological objects that appears and
+    orbit the planet in unpredictable patterns, which makes it nearly impossible
+    to get close ot the surface.
+  size: 14000
+  distanceToSun: 512000000

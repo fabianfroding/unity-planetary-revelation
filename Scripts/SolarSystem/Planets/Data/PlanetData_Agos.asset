@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
   m_Name: PlanetData_Agos
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 102
-  percentScannedPerSec: 2
+  planetName: Agos
+  description: Data indicates that planet surface is covered in deserts. The probability
+    of life is very low. However, organisms may be able to survive underneath the
+    layers of sand.
+  size: 7000
+  distanceToSun: 142000000

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
   m_Name: PlanetData_Tarvan
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 0
-  percentScannedPerSec: 1.25
+  planetName: Tarvan
+  description: Observations of this planet reveals that the entire planet is covered
+    in a roof of vegetation. The planet is positioned in a CHZ, which makes it the
+    most likely candidate of all planets in the solar system to contain life.
+  size: 8000
+  distanceToSun: 205000000

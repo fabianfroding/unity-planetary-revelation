@@ -3,48 +3,52 @@
 public class PlanetScript : MonoBehaviour
 {
     public PlanetData planetData;
+    [SerializeField] private GameObject focusedCamPos;
 
-    public void Scan(float playerObjectScanSpeed)
+    public GameObject GetFocusedCamPos()
     {
-        if (planetData.percentScanned < 100)
-        {
-            float newPercentScanned = planetData.percentScanned + planetData.percentScannedPerSec;
-            if (newPercentScanned >= 100)
-            {
-                planetData.percentScanned = 100;
-                ScanComplete();
-            }
-            else
-            {
-                planetData.percentScanned += planetData.percentScannedPerSec * playerObjectScanSpeed;
-            }
-        }
+        return focusedCamPos;
     }
 
-    private void ScanComplete()
+    private void Start()
     {
-        AudioManager.Instance.PlayPlanetScannedSound(gameObject);
-        PlanetEventManager.Instance.PlanetScanComplete();
+        planetData.planetName = gameObject.name;
     }
 
     private void OnMouseOver()
     {
-        PlanetUIData planetUIData = new PlanetUIData
-        {
-            nameText = planetData.percentScanned >= 100 ? gameObject.name : "Unknown Planet",
-            distanceText = "Distance: " + (int)Vector3.Distance(GameObject.Find(EditorConstants.GAME_OBJECT_NAME_SUN).transform.position, transform.position),
-            percentScannedText = "Scanned: " + (int)planetData.percentScanned + "%",
-        };
-        UIManager.Instance.UpdatePlanetUIData(planetUIData);
+        UIHoverPlanet.Instance.ShowUI(planetData);
     }
 
     private void OnMouseExit()
     {
-        UIManager.Instance.ResetPlanetUIData();
+        UIHoverPlanet.Instance.HideUI();
     }
 
     private void OnMouseDown()
     {
-        Debug.Log(gameObject.name + " clicked.");
+        planetData.size = GetSize();
+        planetData.distanceToSun = GetDistanceToSun();
+        UIPlanetDetails.Instance.ShowUI(planetData);
+
+        if (focusedCamPos != null)
+        {
+            CameraController.Instance.SetFocusedObjectPos(focusedCamPos);
+        }
+    }
+
+    private int GetSize()
+    {
+        return (int)transform.localScale.x * 1000;
+    }
+
+    private int GetDistanceToSun()
+    {
+        GameObject sun = GameObject.Find(EditorConstants.GAME_OBJECT_NAME_SUN);
+        if (sun == null)
+        {
+            return 0;
+        }
+        return (int)Vector3.Distance(transform.position, sun.transform.position) * 1000000;
     }
 }

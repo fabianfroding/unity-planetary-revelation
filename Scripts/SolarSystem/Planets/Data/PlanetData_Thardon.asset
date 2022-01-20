@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be83517a6ec35284eb5badb6f3a7252d, type: 3}
   m_Name: PlanetData_Thardon
   m_EditorClassIdentifier: 
-  description: 
-  percentScanned: 0
-  percentScannedPerSec: 1
+  planetName: Thardon
+  description: The small amounts of data from this planet shows that strange energies
+    are being pulled toward it. Unknown sounds can be heard as a result of the strange
+    nature of the planet.
+  size: 9000
+  distanceToSun: -1294967296
