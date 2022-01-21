@@ -23,6 +23,9 @@ public class CelestialBody : GravityObject
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        Initialize();
+
         rb.mass = mass;
         velocity = initialVelocity;
     }
@@ -53,7 +56,13 @@ public class CelestialBody : GravityObject
         rb.MovePosition(rb.position + velocity * timestep);
     }
 
+    // NOTE: Does not run in build mode.
     private void OnValidate()
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         mass = surfaceGravity * radius * radius / GameConstants.GRAVITATIONAL_CONSTANT;
         //meshHolder = transform.GetChild(0);
