@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UIHoverPlanet : MonoBehaviour
+public class UIHoverPlanet : UIBase
 {
     [SerializeField] private TextMeshProUGUI hoverText;
 
@@ -12,7 +12,7 @@ public class UIHoverPlanet : MonoBehaviour
         { 
             if (instance == null)
             {
-                instance = FindObjectOfType<UIHoverPlanet>();
+                instance = FindFirstObjectByType<UIHoverPlanet>();
             }
             return instance;
         }
@@ -20,7 +20,7 @@ public class UIHoverPlanet : MonoBehaviour
 
     public void ShowUI(PlanetData planetData)
     {
-        if (!UIPlanetDetails.Instance.IsActive())
+        if (!UIPlanetDetails.Instance.IsActive() && !UIManager.Instance.ExitMenu.gameObject.activeSelf)
         {
             transform.position = Input.mousePosition;
             hoverText.text = planetData.planetName;

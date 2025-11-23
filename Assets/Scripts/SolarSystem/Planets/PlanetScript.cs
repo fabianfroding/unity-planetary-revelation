@@ -27,6 +27,9 @@ public class PlanetScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (UIManager.Instance.ExitMenu.gameObject.activeSelf)
+            return;
+        
         planetData.size = GetSize();
         planetData.distanceToSun = GetDistanceToSun();
         UIPlanetDetails.Instance.ShowUI(planetData);
@@ -34,6 +37,12 @@ public class PlanetScript : MonoBehaviour
         if (focusedCamPos != null)
         {
             CameraController.Instance.SetFocusedObjectPos(focusedCamPos);
+        }
+
+        SolarSystem solarSystem = SolarSystem.Instance;
+        if (solarSystem)
+        {
+            solarSystem.AddToPlanetsDiscovered(planetData.planetName);
         }
     }
 

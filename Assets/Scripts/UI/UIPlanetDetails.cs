@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class UIPlanetDetails : MonoBehaviour
+public class UIPlanetDetails : UIBase
 {
     [SerializeField] private float bgRectWidth;
     [SerializeField] private float bgRectHeight;
@@ -14,9 +14,6 @@ public class UIPlanetDetails : MonoBehaviour
     [SerializeField] private GameObject planetDetailsTextGO;
     [SerializeField] private GameObject closeBTNGO;
 
-    [SerializeField] private AudioSource menuOpenSound;
-    [SerializeField] private AudioSource menuCloseSound;
-
     private RectTransform bgGoRect;
     private bool isActive = false;
 
@@ -27,7 +24,7 @@ public class UIPlanetDetails : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<UIPlanetDetails>();
+                instance = FindFirstObjectByType<UIPlanetDetails>();
             }
             return instance;
         }

@@ -19,7 +19,7 @@ public class BodySimulator : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<BodySimulator>();
+                instance = FindFirstObjectByType<BodySimulator>();
             }
             return instance;
         }
@@ -27,9 +27,8 @@ public class BodySimulator : MonoBehaviour
 
     private void Awake()
     {
-        bodies = FindObjectsOfType<CelestialBody>();
+        bodies = FindObjectsByType<CelestialBody>(FindObjectsSortMode.None);
         Time.fixedDeltaTime = GameConstants.PHYSICS_TIMESTEP;
-        Debug.Log("Setting fixedDeltaTime to: " + GameConstants.PHYSICS_TIMESTEP);
     }
 
     private void FixedUpdate()
